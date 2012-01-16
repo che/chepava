@@ -7,8 +7,8 @@
   %meta{name: 'keywords', content: CHEPAVA::CONFIGURATION[:locales][@locale][:keywords]}
   %meta{name: 'author', content: CHEPAVA::CONFIGURATION[:locales][@locale][:author]}
   %meta{name: 'copyright', content: CHEPAVA::CONFIGURATION[:locales][@locale][:author]}
-  %meta{http_equiv: 'content-type', content: "text/html; charset=#{CHEPAVA::ENCODING_DEFAULT}"}
-  %meta{http_equiv: 'content-language', content: @locale}
+  %meta{'http-equiv' => 'content-type', content: "text/html; charset=#{CHEPAVA::ENCODING_DEFAULT}"}
+  %meta{'http-equiv' => 'content-language', content: @locale}
   %link{rel: 'shortcut icon', type: 'image/x-icon', href: "/images/#{CHEPAVA::NAME}.ico"}
   %link{rel: 'stylesheet', href: '/stylesheets/layout.css', media: 'all', type: 'text/css'}
  %body
