@@ -16,8 +16,8 @@ module CHEPAVA
     LOCALE_REQUEST_KEY = 'HTTP_ACCEPT_LANGUAGE'
     LOCALE = ':locale'
 
-    REG_LOCALE__SEPARATOR1 = /[;]/
-    REG_LOCALE__SEPARATOR2 = /[,]/
+    REG_LOCALE_SEPARATOR1 = /[;]/
+    REG_LOCALE_SEPARATOR2 = /[,]/
 
     get "#{SEPARATOR}*.css" do
       content_type "text#{SEPARATOR}css"
@@ -53,7 +53,7 @@ module CHEPAVA
       @locale = params[:locale].to_s
       if @locale.empty?
         begin
-          @locale = request.env[LOCALE_REQUEST_KEY].split(REG_LOCALE__SEPARATOR1)[0].split(REG_LOCALE__SEPARATOR2)[-1]
+          @locale = request.env[LOCALE_REQUEST_KEY].split(REG_LOCALE_SEPARATOR1)[0].split(REG_LOCALE_SEPARATOR2)[-1]
         rescue
           @locale = CONFIGURATION[:locale]
         end
