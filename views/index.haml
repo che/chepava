@@ -1,0 +1,37 @@
+-# encoding: utf-8
+!!!
+%html{xmlns: 'http://www.w3.org/1999/xhtml', lang: @locale, 'xml:lang' => @locale}
+ %head
+  %title #{CHEPAVA::CONFIGURATION[:locales][@locale][:title]}
+  %meta{name: 'description', content: CHEPAVA::CONFIGURATION[:locales][@locale][:description]}
+  %meta{name: 'keywords', content: CHEPAVA::CONFIGURATION[:locales][@locale][:keywords]}
+  %meta{name: 'author', content: CHEPAVA::CONFIGURATION[:locales][@locale][:author]}
+  %meta{name: 'copyright', content: CHEPAVA::CONFIGURATION[:locales][@locale][:author]}
+  %meta{http_equiv: 'content-type', content: "text/html; charset=#{CHEPAVA::ENCODING_DEFAULT}"}
+  %meta{http_equiv: 'content-language', content: @locale}
+  %link{rel: 'shortcut icon', type: 'image/x-icon', href: "/images/#{CHEPAVA::NAME}.ico"}
+  %link{rel: 'stylesheet', href: '/stylesheets/layout.css', media: 'all', type: 'text/css'}
+ %body
+  %div#p_lang
+   - if CHEPAVA::CONFIGURATION[:locales_list].size > 1
+    - for i in CHEPAVA::CONFIGURATION[:locales_list]
+     - if i == @locale
+      %a.s #{CHEPAVA::CONFIGURATION[:locales][i][:name]}
+     - else
+      %a.l{href: CHEPAVA::SEPARATOR + i}#{CHEPAVA::CONFIGURATION[:locales][i][:name]}
+  %div#p_logo
+   %a.l{href: CHEPAVA::SEPARATOR + @locale}
+  %div#p_site
+   - for s in CHEPAVA::CONFIGURATION[:sites] do
+    %a.s{href: "http://#{s}"}#{s}
+  %div#p_line
+  %div#p_data
+   %div#h
+    %a.h{href: CHEPAVA::SEPARATOR + @locale}#{CHEPAVA::CONFIGURATION[:locales][@locale][:author]}
+   %div#l
+    %a.l{href: "mailto:#{CHEPAVA::CONFIGURATION[:mailto]}"}#{CHEPAVA::CONFIGURATION[:mailto]}
+   %div#l
+    %a.l{href: "skype:#{CHEPAVA::CONFIGURATION[:tel][:number]}?call"}#{CHEPAVA::CONFIGURATION[:tel][:title]}
+  %div#p_cprt
+   %a.c &copy; #{CHEPAVA::CONFIGURATION[:year]}-#{Time.now.year} #{CHEPAVA::CONFIGURATION[:locales][@locale][:author]}. #{CHEPAVA::CONFIGURATION[:locales][@locale][:copyright]}.
+- remove_instance_variable(:@locale)

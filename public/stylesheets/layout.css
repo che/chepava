@@ -1,0 +1,326 @@
+/*
+ *  layout.css -- css stylesheet used on chepava.by
+ *
+ *  autor: pavel chebotarev <info@chepava.by>
+ *
+ *  copyright (c) 2012 pavel chebotarev. all rights reserved.
+ */
+
+
+html,
+body
+{
+  z-index: 0;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  border: 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-position: left top;
+  background-repeat: repeat;
+  background-image: url('../images/bg.png');
+  background-color: #3d403f;
+  color: #505453;
+  font-weight: normal;
+  font-size: 11px !important;
+  line-height: 15px;
+  font-family: Arial, "Lucida Sans Unicode", Verdana, sans-serif !important;
+  padding: 0px;
+  margin: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+  overflow: auto;
+}
+
+
+#p_lang
+{
+  z-index: 10;
+  right: 30%;
+  top: 11px;
+  border: 0px;
+  position: absolute;
+  background: none;
+  width: 40%;
+  height: 15px;
+  padding: 0px;
+  margin: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: right;
+}
+#p_lang a.l,
+#p_lang a.l:visited,
+#p_lang a.l:active,
+#p_lang a.l:focus,
+#p_lang a.l:hover,
+#p_lang a.s,
+#p_lang a.s:visited,
+#p_lang a.s:active,
+#p_lang a.s:focus,
+#p_lang a.s:hover
+{
+  font-family: Arial, "Lucida Sans Unicode", Verdana, sans-serif !important;
+  margin: 0px 0px 0px 4px;
+  padding: 0px;
+  background: none;
+  border: none;
+  color: #505453;
+  cursor: default;
+  font-size: 11px !important;
+  font-weight: normal;
+  line-height: 15px;
+  text-decoration: none;
+  outline: none;
+}
+#p_lang a.l:hover
+{
+  cursor: pointer;
+  color: #a0a8a6;
+}
+* HTML #p_lang a.l:hover
+{
+  cursor: hand;
+}
+
+
+#p_logo
+{
+  z-index: 10;
+  left: 30%;
+  bottom: 76%;
+  border: 0px;
+  position: absolute;
+  background-color: none;
+  width: 122px;
+  height: 21px;
+  padding: 0px;
+  margin: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: left;
+}
+#p_logo a.l,
+#p_logo a.l:visited,
+#p_logo a.l:active,
+#p_logo a.l:hover,
+#p_logo a.l:focus
+{
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  width: 122px;
+  height: 21px;
+  text-decoration: none;
+  text-transform: none;
+  line-height: 21px;
+  display: block;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url('../images/logo_b.png');
+  background-color: none;
+  outline: none;
+}
+#p_logo a.l:hover
+{
+  cursor: pointer;
+  background-image: url('../images/logo_w.png');
+}
+* HTML #p_logo a.l:hover
+{
+  cursor: hand;
+}
+
+
+#p_line
+{
+  z-index: 5;
+  top: 45%;
+  left: 15%;
+  border: none;
+  width: 70%;
+  height: 1px;
+  display: block;
+  font-size: 0px !important;
+  line-height: 1px;
+  text-decoration: none;
+  text-transform: none;
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  background-position: left top;
+  background-repeat: repeat;
+  background-image: url('../images/bg_line.png');
+  background-color: #505453;
+}
+
+
+#p_site
+{
+  z-index: 10;
+  right: 15%;
+  bottom: 55%;
+  border: none;
+  position: absolute;
+  background: none;
+  width: 60%;
+  height: 30px;
+  padding: 0px 45px 0px 0px;
+  margin: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: right;
+}
+#p_site a.s,
+#p_site a.s:visited,
+#p_site a.s:active,
+#p_site a.s:hover,
+#p_site a.s:focus
+{
+  font-family: Arial, "Lucida Sans Unicode", Verdana, sans-serif !important;
+  margin: 0px 0px 0px 42px;
+  padding: 0px;
+  background: none;
+  border: none;
+  color: #008060;
+  cursor: default;
+  font-size: 11px !important;
+  line-height: 15px;
+  font-weight: normal;
+  text-decoration: none;
+  outline: none;
+}
+#p_site a.s:hover
+{
+  cursor: pointer;
+  color: #ffffff;
+}
+* HTML #p_site a.s:hover
+{
+  cursor: hand;
+}
+
+
+#p_data
+{
+  z-index: 10;
+  right: 20%;
+  top: 66%;
+  border: 0px;
+  position: absolute;
+  background: none;
+  width: 40%;
+  height: 10%;
+  padding: 0px;
+  margin: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: right;
+}
+#h,
+#l,
+#p_data a.l,
+#p_data a.l:visited,
+#p_data a.l:active,
+#p_data a.l:hover,
+#p_data a.l:focus,
+#p_data a.h,
+#p_data a.h:visited,
+#p_data a.h:active,
+#p_data a.h:hover,
+#p_data a.h:focus
+{
+  font-family: Arial, "Lucida Sans Unicode", Verdana, sans-serif !important;
+  margin: 0px;
+  padding: 0px;
+  background: none;
+  border: none;
+  color: #79807e;
+  cursor: default;
+  font-weight: normal;
+  text-decoration: none;
+  outline: none;
+}
+#l,
+#p_data a.l,
+#p_data a.l:visited,
+#p_data a.l:active,
+#p_data a.l:hover,
+#p_data a.l:focus
+{
+  font-size: 11px !important;
+  line-height: 15px;
+}
+#p_data a.l:hover,
+#p_data a.h:hover
+{
+  color: #ffffff;
+}
+#p_data a.h:hover,
+#p_data a.l:hover
+{
+  cursor: pointer;
+}
+* HTML #p_data a.l:hover
+{
+  cursor: hand;
+}
+#h,
+#p_data a.h,
+#p_data a.h:visited,
+#p_data a.h:active,
+#p_data a.h:hover,
+#p_data a.h:focus
+{
+  font-size: 15px !important;
+  line-height: 19px;
+}
+#l
+{
+  height: 15px;
+}
+#h
+{
+  height: 38px;
+}
+
+
+#p_cprt
+{
+  z-index: 5;
+  left: 30%;
+  bottom: 11px;
+  border: 0px;
+  position: absolute;
+  background: none;
+  width: 40%;
+  height: 15px;
+  padding: 0px;
+  margin: 0px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+}
+#p_cprt a.c,
+#p_cprt a.c:visited,
+#p_cprt a.c:active,
+#p_cprt a.c:focus,
+#p_cprt a.c:hover
+{
+  font-family: Arial, "Lucida Sans Unicode", Verdana, sans-serif !important;
+  margin: 0px;
+  padding: 0px;
+  background: none;
+  border: none;
+  color: #505453;
+  cursor: default;
+  font-size: 11px !important;
+  font-weight: normal;
+  line-height: 15px;
+  text-decoration: none;
+  outline: none;
+}
