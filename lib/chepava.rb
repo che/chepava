@@ -56,7 +56,7 @@ module CHEPAVA
       end
     end
     if CONFIGURATION[:locales_list].include?(CONFIGURATION[:locale])
-      @path = File.dirname(__FILE__) + SEPARATOR + File.basename(__FILE__, RUBY_FILE_EXTENSION)
+      @path = File.dirname(File.expand_path(__FILE__)) + SEPARATOR + NAME
       for i in Dir.entries(@path).sort[2..-1].reverse do
         @file = @path + SEPARATOR + i
         require @file if @file =~ REG_RUBY_FILE && File.exists?(@file) && File.file?(@file)
