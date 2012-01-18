@@ -6,7 +6,7 @@ require 'haml'
 
 module CHEPAVA
   class Site < Sinatra::Base
-    set :haml, :format => CONFIGURATION[:html].to_sym
+    set :haml, :format => CONFIGURATION[:html]
     set :public_folder, PUBLIC_DIR
     set :views, VIEWS_DIR
     set :root, ROOT_DIR
@@ -56,10 +56,10 @@ module CHEPAVA
         begin
           @locale = request.env[LOCALE_REQUEST_KEY].split(REG_LOCALE_SEPARATOR1)[0].split(REG_LOCALE_SEPARATOR2)[-1]
         rescue
-          @locale = CONFIGURATION[:locale]
+          @locale = CONFIGURATION[:locale][:default]
         end
       end
-      redirect SEPARATOR + CONFIGURATION[:locale] unless CONFIGURATION[:locales_list].include?(@locale)
+      redirect SEPARATOR + CONFIGURATION[:locale][:default] unless CONFIGURATION[:locale][:list].include?(@locale)
     end
 
   end

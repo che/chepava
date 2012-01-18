@@ -1,9 +1,10 @@
 chepava:
   domain: by
-  sites: gnu.by lvee.org freediving.by
-  tel: +375 29 3179210
-  year: 2010
-  locale: en
-  locales_list: by ua ru lt fi se no en
   html: html5
-  mailto: info
+  sites: gnu.by lvee.org freediving.by
+  phone: +375 29 3179210
+  email: info
+  foundation_year: 2010
+  locale:
+    default: ru
+    list: by ua ru lt fi se no en

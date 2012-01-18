@@ -33,14 +33,22 @@ module CHEPAVA
 
   def self.init
     for i in YAML.load_file(CONFIG_DIR + NAME + YAML_FILE_EXTENSION)[NAME] do
+      if i[1].kind_of?(Hash)
+        for ii in i[1].keys do
+          i[1][ii.to_sym] = i[1].delete(ii)
+        end
+      end
       CONFIGURATION[i[0].to_sym] = i[1]
     end
-    CONFIGURATION[:tel] = {:title => CONFIGURATION[:tel], :number => CONFIGURATION[:tel].gsub(REG_SPACES, CHAR_EMPTY)} if CONFIGURATION[:tel]
+    CONFIGURATION[:phone] = {:title => CONFIGURATION[:phone], :number => CONFIGURATION[:phone].gsub(REG_SPACES, CHAR_EMPTY)} if CONFIGURATION[:phone]
     CONFIGURATION[:domain] = NAME + CHAR_DOT + CONFIGURATION[:domain] if CONFIGURATION[:domain]
-    CONFIGURATION[:mailto] = CONFIGURATION[:mailto] + CHAR_DOG + CONFIGURATION[:domain] if CONFIGURATION[:mailto]
+    CONFIGURATION[:email] = CONFIGURATION[:email] + CHAR_DOG + CONFIGURATION[:domain] if CONFIGURATION[:email] && !CONFIGURATION[:email][CHAR_DOG]
     CONFIGURATION[:sites] = CONFIGURATION[:sites].split(REG_SPACES) if CONFIGURATION[:sites]
-    CONFIGURATION[:locales_list] = CONFIGURATION[:locales_list].split(REG_SPACES) if CONFIGURATION[:locales_list]
-    CONFIGURATION[:locale] = LOCALE_DEFAULT unless CONFIGURATION[:locale]
+    CONFIGURATION[:html] = CONFIGURATION[:html].to_sym if CONFIGURATION[:html]
+    if CONFIGURATION[:locale]
+      CONFIGURATION[:locale][:list] = CONFIGURATION[:locale][:list].split(REG_SPACES) if CONFIGURATION[:locale][:list]
+      CONFIGURATION[:locale][:default] = LOCALE_DEFAULT unless CONFIGURATION[:locale][:default]
+    end
     CONFIGURATION[:locales] = {}
     @path = CONFIG_DIR + LOCALES_DIR
     for i in Dir.entries(@path) do
@@ -49,14 +57,14 @@ module CHEPAVA
         CONFIGURATION[:locales].merge!(YAML.load_file(@file))
       end
     end
-    CONFIGURATION[:locales_list].replace(CONFIGURATION[:locales_list] & CONFIGURATION[:locales].keys)
-    for i in CONFIGURATION[:locales_list] do
+    CONFIGURATION[:locale][:list].replace(CONFIGURATION[:locale][:list] & CONFIGURATION[:locales].keys)
+    for i in CONFIGURATION[:locale][:list] do
       for l in CONFIGURATION[:locales].delete(i) do
         CONFIGURATION[:locales][i] = {} unless CONFIGURATION[:locales][i]
         CONFIGURATION[:locales][i][l[0].to_sym] = l[1]
       end
     end
-    if CONFIGURATION[:locales_list].include?(CONFIGURATION[:locale])
+    if CONFIGURATION[:locale][:list].include?(CONFIGURATION[:locale][:default])
       @path = File.dirname(File.expand_path(__FILE__)) + SEPARATOR + NAME
       for i in Dir.entries(@path).sort[2..-1].reverse do
         @file = @path + SEPARATOR + i

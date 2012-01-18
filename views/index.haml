@@ -13,8 +13,8 @@
   %link{:rel => 'stylesheet', :href => '/stylesheets/layout.css', :media => 'all', :type => 'text/css'}
  %body
   %div#p_lang
-   - if CHEPAVA::CONFIGURATION[:locales_list].size > 1
-    - for i in CHEPAVA::CONFIGURATION[:locales_list]
+   - if CHEPAVA::CONFIGURATION[:locale][:list].size > 1
+    - for i in CHEPAVA::CONFIGURATION[:locale][:list]
      - if i == @locale
       %a.s #{CHEPAVA::CONFIGURATION[:locales][i][:name]}
      - else
@@ -29,9 +29,9 @@
    %div#h
     %a.h{:href => CHEPAVA::SEPARATOR + @locale}#{CHEPAVA::CONFIGURATION[:locales][@locale][:author]}
    %div#l
-    %a.l{:href => "mailto:#{CHEPAVA::CONFIGURATION[:mailto]}"}#{CHEPAVA::CONFIGURATION[:mailto]}
+    %a.l{:href => "mailto:#{CHEPAVA::CONFIGURATION[:email]}"}#{CHEPAVA::CONFIGURATION[:email]}
    %div#l
-    %a.l{:href => "skype:#{CHEPAVA::CONFIGURATION[:tel][:number]}?call"}#{CHEPAVA::CONFIGURATION[:tel][:title]}
+    %a.l{:href => "skype:#{CHEPAVA::CONFIGURATION[:phone][:number]}?call"}#{CHEPAVA::CONFIGURATION[:phone][:title]}
   %div#p_cprt
-   %a.c &copy; #{CHEPAVA::CONFIGURATION[:year]}-#{Time.now.year} #{CHEPAVA::CONFIGURATION[:locales][@locale][:author]}. #{CHEPAVA::CONFIGURATION[:locales][@locale][:copyright]}.
+   %a.c &copy; #{CHEPAVA::CONFIGURATION[:foundation_year]}-#{Time.now.year} #{CHEPAVA::CONFIGURATION[:locales][@locale][:author]}. #{CHEPAVA::CONFIGURATION[:locales][@locale][:copyright]}.
 - remove_instance_variable(:@locale)
