@@ -19,9 +19,10 @@ module CHEPAVA
   REG_SPACES = /[\s\t]/
 
   LOCALES_DIR = 'locales' + SEPARATOR
-  CONFIG_DIR = File.dirname(File.dirname(File.expand_path(__FILE__))) + SEPARATOR + 'config' + SEPARATOR
-  PUBLIC_DIR = File.dirname(CONFIG_DIR) + SEPARATOR + 'public'
-  VIEWS_DIR = File.dirname(CONFIG_DIR) + SEPARATOR + 'views'
+  ROOT_DIR = File.dirname(File.dirname(File.expand_path(__FILE__)))
+  CONFIG_DIR = ROOT_DIR + SEPARATOR + 'config' + SEPARATOR
+  PUBLIC_DIR = ROOT_DIR + SEPARATOR + 'public'
+  VIEWS_DIR = ROOT_DIR + SEPARATOR + 'views'
 
   NAME = File.basename(__FILE__, RUBY_FILE_EXTENSION)
 

@@ -9,6 +9,7 @@ module CHEPAVA
     set :haml, :format => CONFIGURATION[:html].to_sym
     set :public_folder, PUBLIC_DIR
     set :views, VIEWS_DIR
+    set :root, ROOT_DIR
     enable :static_cache_control
     disable :show_exceptions
     disable :sessions
