@@ -22,8 +22,8 @@ body
   background-position: left top;
   background-repeat: repeat;
   background-image: url('../images/bg.png');
-  background-color: #3d403e;
-  color: #565957;
+  background-color: #3d403f;
+  color: #565958;
   font-weight: normal;
   font-size: 11px !important;
   line-height: 15px;
@@ -69,7 +69,7 @@ body
   padding: 0px;
   background: none;
   border: none;
-  color: #565957;
+  color: #565958;
   cursor: default;
   font-size: 11px !important;
   font-weight: normal;
@@ -80,7 +80,7 @@ body
 #p_lang a.l:hover
 {
   cursor: pointer;
-  color: #b8bfbb;
+  color: #b8bfbc;
 }
 * HTML #p_lang a.l:hover
 {
@@ -155,7 +155,7 @@ body
   background-position: left top;
   background-repeat: repeat;
   background-image: url('../images/bg_line.png');
-  background-color: #565957;
+  background-color: #565958;
 }
 
 
@@ -186,7 +186,7 @@ body
   padding: 0px;
   background: none;
   border: none;
-  color: #008040;
+  color: #008050;
   cursor: default;
   font-size: 11px !important;
   line-height: 15px;
@@ -197,7 +197,7 @@ body
 #p_site a.s:hover
 {
   cursor: pointer;
-  color: #b8bfbb;
+  color: #b8bfbc;
 }
 * HTML #p_site a.s:hover
 {
@@ -239,7 +239,7 @@ body
   padding: 0px;
   background: none;
   border: none;
-  color: #7b807d;
+  color: #7b807e;
   cursor: default;
   font-weight: normal;
   text-decoration: none;
@@ -258,7 +258,7 @@ body
 #p_data a.l:hover,
 #p_data a.h:hover
 {
-  color: #b8bfbb;
+  color: #b8bfbc;
 }
 #p_data a.h:hover,
 #p_data a.l:hover
@@ -316,7 +316,7 @@ body
   padding: 0px;
   background: none;
   border: none;
-  color: #565957;
+  color: #565958;
   cursor: default;
   font-size: 11px !important;
   font-weight: normal;
