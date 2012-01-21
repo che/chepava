@@ -37,6 +37,15 @@ body
 }
 
 
+#preload_logo_w
+{
+  width: 0px;
+  height: 0px;
+  display: none;
+  background-image: url('../images/logo_w.png');
+}
+
+
 #p_lang
 {
   z-index: 10;

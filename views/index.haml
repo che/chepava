@@ -12,6 +12,7 @@
   %link{:rel => 'shortcut icon', :type => 'image/x-icon', :href => "/images/#{CHEPAVA::NAME}.ico"}
   %link{:rel => 'stylesheet', :href => '/stylesheets/layout.css', :media => 'all', :type => 'text/css'}
  %body
+  %div#preload_logo_w
   %div#p_lang
    - if CHEPAVA::CONFIGURATION[:locale][:list].size > 1
     - for i in CHEPAVA::CONFIGURATION[:locale][:list]
