@@ -10,7 +10,7 @@
 html,
 body
 {
-  z-index: 0;
+  z-index: 5;
   top: 0px;
   left: 0px;
   right: 0px;
@@ -34,21 +34,23 @@ body
   text-transform: none;
   text-align: center;
   overflow: auto;
+  cursor: default;
 }
 
 
 #preload_logo_w
 {
+  z-index: 0;
   width: 0px;
   height: 0px;
-  display: none;
+  display: block;
   background-image: url('../images/logo_w.png');
 }
 
 
 #p_lang
 {
-  z-index: 10;
+  z-index: 20;
   right: 30%;
   top: 9px;
   border: 0px;
@@ -61,6 +63,7 @@ body
   text-decoration: none;
   text-transform: none;
   text-align: right;
+  cursor: default;
 }
 #p_lang a.l,
 #p_lang a.l:visited,
@@ -99,7 +102,7 @@ body
 
 #p_logo
 {
-  z-index: 10;
+  z-index: 20;
   left: 30%;
   bottom: 76%;
   border: 0px;
@@ -147,7 +150,7 @@ body
 
 #p_line
 {
-  z-index: 5;
+  z-index: 10;
   top: 45%;
   left: 15%;
   border: none;
@@ -170,7 +173,7 @@ body
 
 #p_site
 {
-  z-index: 10;
+  z-index: 20;
   right: 15%;
   bottom: 55%;
   border: none;
@@ -183,6 +186,7 @@ body
   text-decoration: none;
   text-transform: none;
   text-align: right;
+  cursor: default;
 }
 #p_site a.s,
 #p_site a.s:visited,
@@ -216,7 +220,7 @@ body
 
 #p_data
 {
-  z-index: 10;
+  z-index: 20;
   right: 20%;
   top: 66%;
   border: 0px;
@@ -229,6 +233,7 @@ body
   text-decoration: none;
   text-transform: none;
   text-align: right;
+  cursor: default;
 }
 #h,
 #l,
@@ -300,7 +305,7 @@ body
 
 #p_cprt
 {
-  z-index: 5;
+  z-index: 10;
   left: 30%;
   bottom: 9px;
   border: 0px;
@@ -313,6 +318,7 @@ body
   text-decoration: none;
   text-transform: none;
   text-align: center;
+  cursor: default;
 }
 #p_cprt a.c,
 #p_cprt a.c:visited,
