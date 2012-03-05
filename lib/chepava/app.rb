@@ -20,17 +20,16 @@ module CHEPAVA
     REG_LOCALE_SEPARATOR1 = /[;]/
     REG_LOCALE_SEPARATOR2 = /[,]/
 
+    before do
+      request.path_info = request.path_info.chop if request.path_info =~ REG_SEPARATOR && request.path_info != SEPARATOR
+    end
+
     get "#{SEPARATOR}*.css" do
       content_type "text#{SEPARATOR}css"
       pass
     end
 
     get SEPARATOR do
-      def_lang
-      redirect SEPARATOR + @locale
-    end
-
-    get SEPARATOR + LOCALE + SEPARATOR do
       def_lang
       redirect SEPARATOR + @locale
     end
@@ -59,7 +58,7 @@ module CHEPAVA
           @locale = CONFIGURATION[:locale][:default]
         end
       end
-      redirect SEPARATOR + CONFIGURATION[:locale][:default] unless CONFIGURATION[:locale][:list].include?(@locale)
+      @locale = CONFIGURATION[:locale][:default] unless CONFIGURATION[:locale][:list].include?(@locale)
     end
 
   end

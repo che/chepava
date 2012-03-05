@@ -16,6 +16,7 @@ module CHEPAVA
 
   REG_YAML_FILE = /[.][Yy][Mm][Ll]$/
   REG_RUBY_FILE = /[.][Rr][Bb]$/
+  REG_SEPARATOR = /[\/]$/
   REG_SPACES = /[\s\t]/
 
   LOCALES_DIR = 'locales' + SEPARATOR
