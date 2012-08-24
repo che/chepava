@@ -1,10 +1,10 @@
 chepava:
   domain: by
   html: html5
-  sites: gnu.by lvee.org freediving.by spearfishing.by
+  sites: gnu.by lvee.org hackerspace.by freediving.by spearfishing.by
   phone: +375 29 3179210
   email: info
   foundation_year: 2010
   locale:
     default: en
-    list: by ua ru lt fi se no en
+    list: be ua ru lt fi se no en
