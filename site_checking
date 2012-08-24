@@ -11,23 +11,22 @@ SITE_BIN='rackup'
 SITE_HOST='127.0.0.1'
 SITE_SERVER='thin'
 SITE_ENV='production'
-SITE_PID=
-SITE_ID_LIMIT=${#SITE_DIR[@]}
-SITE_ID=0
+SITE_PID=''
 
-if [ "$SITE_ID_LIMIT" != "0" ]; then
-	while (("$SITE_ID_LIMIT" > "$SITE_ID")); do
-		SITE_PID="$(echo $(ps ax | grep "${SITE_PORT[$SITE_ID]}" | grep "$SITE_BIN") | cut -d\  -f1)"
-		if [ "$SITE_RESTART" == "$SITE_RESTART_ARG" ]; then
-			kill -9 "$SITE_PID"
-			SITE_PID=''
+if [ "${#SITE_PORT[@]}" != "0" ] && [ "${#SITE_DIR[@]}" != "0" ]; then
+	for i in ${SITE_ID[@]}; do
+		if [ "${#SITE_PORT[@]}" -gt "$i" ] && [ "${#SITE_DIR[@]}" -gt "$i" ]; then
+			SITE_PID="$(echo $(ps ax | grep "${SITE_PORT[$i]}" | grep "$SITE_BIN") | cut -d\  -f1)"
+			if [ "$SITE_RESTART" == "$SITE_RESTART_ARG" ]; then
+				kill -9 "$SITE_PID"
+				SITE_PID=''
+			fi
+			if [ "$SITE_PID" == "" ]; then
+				cd "$ROOT_DIR${SITE_DIR[$i]}"
+				"$SITE_BIN" --host="$SITE_HOST" --port="${SITE_PORT[$i]}" --server="$SITE_SERVER" --env="$SITE_ENV" &
+				cd "$ROOT_DIR"
+			fi
 		fi
-		if [ "$SITE_PID" == "" ]; then
-			cd "$ROOT_DIR${SITE_DIR[$SITE_ID]}"
-			"$SITE_BIN" --host="$SITE_HOST" --port="${SITE_PORT[$SITE_ID]}" --server="$SITE_SERVER" --env="$SITE_ENV" &
-			cd "$ROOT_DIR"
-		fi
-		SITE_ID=$[$SITE_ID + 1]
 	done
 fi
 
