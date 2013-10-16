@@ -16,6 +16,7 @@ module CHEPAVA
 
   REG_YAML_FILE = /[.][Yy][Mm][Ll]$/
   REG_RUBY_FILE = /[.][Rr][Bb]$/
+  REG_PHONE_SEPARATOR1 = /[;]/
   REG_SEPARATOR = /[\/]$/
   REG_SPACES = /[\s\t]/
 
@@ -41,7 +42,15 @@ module CHEPAVA
       end
       CONFIGURATION[i[0].to_sym] = i[1]
     end
-    CONFIGURATION[:phone] = {:title => CONFIGURATION[:phone], :number => CONFIGURATION[:phone].gsub(REG_SPACES, CHAR_EMPTY)} if CONFIGURATION[:phone]
+#    CONFIGURATION[:phone] = {:title => CONFIGURATION[:phone], :number => CONFIGURATION[:phone].gsub(REG_SPACES, CHAR_EMPTY)} 
+    if CONFIGURATION[:phone]
+p CONFIGURATION[:phone]
+      CONFIGURATION[:phone] = CONFIGURATION[:phone].split(';')
+      for t in CONFIGURATION[:phone] do
+        CONFIGURATION[:phone][CONFIGURATION[:phone].index(t)] = {:title => CONFIGURATION[:phone][CONFIGURATION[:phone].index(t)], :number => CONFIGURATION[:phone][CONFIGURATION[:phone].index(t)].gsub(REG_SPACES, CHAR_EMPTY)}
+      end
+      p CONFIGURATION[:phone]
+    end
     CONFIGURATION[:domain] = NAME + CHAR_DOT + CONFIGURATION[:domain] if CONFIGURATION[:domain]
     CONFIGURATION[:email] = CONFIGURATION[:email] + CHAR_DOG + CONFIGURATION[:domain] if CONFIGURATION[:email] && !CONFIGURATION[:email][CHAR_DOG]
     CONFIGURATION[:sites] = CONFIGURATION[:sites].split(REG_SPACES) if CONFIGURATION[:sites]

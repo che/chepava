@@ -31,8 +31,9 @@
     %a.h{:href => CHEPAVA::SEPARATOR + @locale}#{CHEPAVA::CONFIGURATION[:locales][@locale][:author]}
    %div#l
     %a.l{:href => "mailto:#{CHEPAVA::CONFIGURATION[:email]}"}#{CHEPAVA::CONFIGURATION[:email]}
-   %div#l
-    %a.l{:href => "skype:#{CHEPAVA::CONFIGURATION[:phone][:number]}?call"}#{CHEPAVA::CONFIGURATION[:phone][:title]}
+   - for t in CHEPAVA::CONFIGURATION[:phone] do
+    %div#l
+     %a.l{:href => "skype:#{t[:number]}?call"}#{t[:title]}
   %div#p_cprt
    %a.c &copy; #{CHEPAVA::CONFIGURATION[:foundation_year]}-#{Time.now.year} #{CHEPAVA::CONFIGURATION[:locales][@locale][:author]}. #{CHEPAVA::CONFIGURATION[:locales][@locale][:copyright]}.
 - remove_instance_variable(:@locale)
